@@ -1,0 +1,44 @@
+namespace:
+  name: zano-ui
+
+image:
+  name: aks-app-ui-root
+  registry: zanoacrs2fckki4vwff2.azurecr.io
+  #registry: localhost  # Use localhost for local development
+  tag: latest
+  imagePullPolicy: Always
+  #imagePullPolicy: IfNotPresent  # Use IfNotPresent for local development
+
+deployment:
+  name: aks-app-ui-root-deployment
+  containerName: aks-app-ui-root
+  containerPort: 8080
+  replicaCount: 1
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+    allowPrivilegeEscalation: false
+  resources:
+    limits:
+      cpu: "200m"
+      memory: "64Mi"
+
+service:
+  name: aks-app-ui-root-service
+  type: ClusterIP # Change to LoadBalancer for AKS, ClusterIP for local dev
+  #type: NodePort # Change to NodePort for local development with kind/, minikube but im using hostNetwork: true i
+  targetPort: 8080 # The port your container listens on
+  port: 3000 # The port your service will be exposed on
+  #nodePort: 32000
+
+secret:
+  name: zano-tls-secret
+
+gateway:
+  name: zano-gateway
+  namespace: zano-gateway  # namespace of the shared aks-infra gateway
+
+route:
+  name: zano-http-route
+  host: zano-dev.westus.cloudapp.azure.com
+  path: /
