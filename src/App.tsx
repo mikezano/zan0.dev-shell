@@ -19,6 +19,19 @@ function Home() {
   );
 }
 
+const ZANO_PRESS_URL =
+  import.meta.env.VITE_ZANO_PRESS_URL ?? "http://localhost:5000";
+
+function ZanoPress() {
+  return (
+    <iframe
+      src={ZANO_PRESS_URL}
+      style={{ width: "100vw", height: "100vh", border: "none" }}
+      title="zano-press"
+    />
+  );
+}
+
 function App() {
   return (
     <BrowserRouter>
@@ -27,6 +40,7 @@ function App() {
       </Suspense>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/zano-press/*" element={<ZanoPress />} />
         <Route
           path="/converters/*"
           element={
