@@ -18,9 +18,7 @@ declare module "navbar/Navbar" {
   export default SiteNavbar;
 }
 
-declare module "converters/Converters" {
-  import type { ComponentType } from "react";
-
+declare module "converters/App" {
   const ConvertersApp: ComponentType;
   export default ConvertersApp;
 }

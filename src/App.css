@@ -11,6 +11,6 @@
 .root-loading {
   padding: 1rem;
   text-align: center;
-  color: #888;
+  color: var(--text-muted);
   font-size: 14px;
 }

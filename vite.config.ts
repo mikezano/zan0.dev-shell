@@ -1,4 +1,4 @@
-import { federation } from "@originjs/vite-plugin-federation";
+import { federation } from "@module-federation/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig, loadEnv } from "vite";
 

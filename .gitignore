@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Vite / Module Federation temp files
+.vite
+.__mf__temp
+.mf
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
