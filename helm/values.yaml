@@ -1,8 +1,8 @@
 namespace:
-  name: zano-ui
+  name: zan0-dev
 
 image:
-  name: aks-app-ui-root
+  name: zan0.dev-shell
   registry: zanoacrs2fckki4vwff2.azurecr.io
   #registry: localhost  # Use localhost for local development
   tag: latest
@@ -10,7 +10,7 @@ image:
   #imagePullPolicy: IfNotPresent  # Use IfNotPresent for local development
 
 deployment:
-  name: aks-app-ui-root-deployment
+  name: zan0-dev-shell-deployment
   containerName: aks-app-ui-root
   containerPort: 8080
   replicaCount: 1
@@ -19,12 +19,15 @@ deployment:
     runAsUser: 1000
     allowPrivilegeEscalation: false
   resources:
+    requests:
+      cpu: "10m"
+      memory: "32Mi"
     limits:
       cpu: "200m"
       memory: "64Mi"
 
 service:
-  name: aks-app-ui-root-service
+  name: zan0-dev-shell-service
   type: ClusterIP # Change to LoadBalancer for AKS, ClusterIP for local dev
   #type: NodePort # Change to NodePort for local development with kind/, minikube but im using hostNetwork: true i
   targetPort: 8080 # The port your container listens on
@@ -36,7 +39,7 @@ secret:
 
 gateway:
   name: zano-gateway
-  namespace: zano-gateway  # namespace of the shared aks-infra gateway
+  namespace: zano-gateway # namespace of the shared aks-infra gateway
 
 route:
   name: zano-http-route

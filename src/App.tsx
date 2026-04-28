@@ -26,7 +26,7 @@ function ZanoPress() {
   return (
     <iframe
       src={ZANO_PRESS_URL}
-      style={{ width: "100vw", height: "100vh", border: "none" }}
+      style={{ width: "90vw", height: "90vh", border: "none" }}
       title="zano-press"
     />
   );

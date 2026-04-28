@@ -11,15 +11,7 @@ COPY tsconfig.json .
 COPY tsconfig.app.json .
 COPY tsconfig.node.json .
 COPY vite.config.ts .
-
-ARG VITE_API_BASE_URL
-ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
-
-ARG VITE_NAVBAR_URL
-ENV VITE_NAVBAR_URL=$VITE_NAVBAR_URL
-
-ARG VITE_CONVERTERS_URL
-ENV VITE_CONVERTERS_URL=$VITE_CONVERTERS_URL
+COPY .env.production .
 
 RUN npm install && npm run build
 
