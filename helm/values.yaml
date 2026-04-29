@@ -43,5 +43,5 @@ gateway:
 
 route:
   name: zano-http-route
-  host: zano-dev.westus.cloudapp.azure.com
+  host: zano.dev
   path: /
