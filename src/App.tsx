@@ -1,6 +1,7 @@
 import { Suspense, lazy } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
+import MichaelManzano from "./remotes/MichaelManzano";
 
 const RemoteNavbar = lazy(() =>
   import("navbar/Navbar").then((m) => ({ default: m.default })),
@@ -41,6 +42,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/zano-press/*" element={<ZanoPress />} />
+        <Route path="/me/*" element={<MichaelManzano />} />
         <Route
           path="/converters/*"
           element={

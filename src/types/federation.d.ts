@@ -22,3 +22,9 @@ declare module "converters/App" {
   const ConvertersApp: ComponentType;
   export default ConvertersApp;
 }
+
+declare module "michaelmanzano/App" {
+  import type { App } from "vue";
+  type MountFunction = (el: HTMLElement) => App;
+  type UnmountFunction = (app: App) => void;
+}

@@ -9,6 +9,10 @@ export default defineConfig(({ mode }) => {
     ? `${env.ZAN0DEV_NAVBAR_URL}/mf-manifest.json`
     : "http://localhost:3001/mf-manifest.json";
 
+  const michaelmanzanoUrl = env.ZAN0DEV_MICHAELMANZANO_URL
+    ? `${env.ZAN0DEV_MICHAELMANZANO_URL}/mf-manifest.json`
+    : "http://localhost:3002/mf-manifest.json";
+
   return {
     plugins: [
       react(),
@@ -19,6 +23,11 @@ export default defineConfig(({ mode }) => {
             type: "module",
             name: "navbar",
             entry: navbarUrl,
+          },
+          michaelmanzano: {
+            type: "module",
+            name: "michaelmanzano",
+            entry: michaelmanzanoUrl,
           },
         },
         shared: {
