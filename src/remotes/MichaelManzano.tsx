@@ -31,5 +31,11 @@ export default function MichaelManzano() {
     };
   }, []);
 
-  return <div ref={ref} style={{ width: "100%", height: "100%" }} />;
+  return (
+    <div
+      id="michael-manzano"
+      ref={ref}
+      style={{ width: "100vw", height: "100vh" }}
+    />
+  );
 }

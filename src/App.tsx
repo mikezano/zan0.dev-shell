@@ -1,6 +1,6 @@
 import { Suspense, lazy } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import "./App.css";
+//import "./App.css";
 import MichaelManzano from "./remotes/MichaelManzano";
 
 const RemoteNavbar = lazy(() =>
