@@ -27,7 +27,7 @@ function ZanoPress() {
   return (
     <iframe
       src={ZANO_PRESS_URL}
-      style={{ width: "90vw", height: "90vh", border: "none" }}
+      style={{ width: "100vw", height: "100vh", border: "none" }}
       title="zano-press"
     />
   );
@@ -40,7 +40,7 @@ function App() {
         <RemoteNavbar title="Zano" />
       </Suspense>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<MichaelManzano />} />
         <Route path="/zano-press/*" element={<ZanoPress />} />
         <Route path="/me/*" element={<MichaelManzano />} />
         <Route
