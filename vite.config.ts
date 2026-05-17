@@ -18,6 +18,7 @@ export default defineConfig(({ mode }) => {
       react(),
       federation({
         name: "shell",
+        runtimePlugins: ["./src/mf-fallback-plugin.ts"],
         remotes: {
           navbar: {
             type: "module",

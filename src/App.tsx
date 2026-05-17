@@ -1,24 +1,7 @@
-import { Suspense, lazy } from "react";
+import { Suspense } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-//import "./App.css";
 import MichaelManzano from "./remotes/MichaelManzano";
-
-const RemoteNavbar = lazy(() =>
-  import("navbar/Navbar").then((m) => ({ default: m.default })),
-);
-
-// const RemoteConverters = lazy(() =>
-//   import("converters/App").then((m) => ({ default: m.default })),
-// );
-
-function Home() {
-  return (
-    <main className="root-home">
-      <h1>Welcome</h1>
-      <p>Select an app from the navigation bar above.</p>
-    </main>
-  );
-}
+import RemoteNavbar from "./remotes/Navbar";
 
 const ZANO_PRESS_URL =
   import.meta.env.VITE_ZANO_PRESS_URL ?? "http://localhost:5000";
@@ -43,15 +26,6 @@ function App() {
         <Route path="/" element={<MichaelManzano />} />
         <Route path="/zano-press/*" element={<ZanoPress />} />
         <Route path="/me/*" element={<MichaelManzano />} />
-        <Route
-          path="/converters/*"
-          element={
-            <Suspense fallback={<div className="root-loading">Loading…</div>}>
-              {/* <RemoteConverters /> */}
-              <h1>Converters app goes here</h1>
-            </Suspense>
-          }
-        />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

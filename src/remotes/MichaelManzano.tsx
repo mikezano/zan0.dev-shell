@@ -21,10 +21,16 @@ export default function MichaelManzano() {
     let vueApp: App | undefined;
     let cancelled = false;
     // @ts-expect-error -- module federation remote
-    import("michaelmanzano/App").then(({ mount }) => {
-      if (cancelled || !ref.current) return;
-      vueApp = mount(ref.current, "/me");
-    });
+    import("michaelmanzano/App")
+      .then(({ mount }) => {
+        if (cancelled || !ref.current) return;
+        vueApp = mount(ref.current, "/me");
+      })
+      .catch(() => {
+        if (cancelled || !ref.current) return;
+        ref.current.innerHTML =
+          "<p style='padding:1rem'>michaelmanzano remote is unavailable.</p>";
+      });
     return () => {
       cancelled = true;
       if (vueApp) vueApp.unmount();
